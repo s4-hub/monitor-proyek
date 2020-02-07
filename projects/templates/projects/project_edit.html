@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-header">
+                <strong class="card-title">Project</strong>
+            </div>
+            <div class="card-body">
+                <!-- Credit Card -->
+                <div id="pay-invoice">
+                    <div class="card-body">
+                        <form action="#" method="post" novalidate="novalidate">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label class="control-label mb-1">{{ form.nama.label }}</label>
+                                {{ form.nama }}
+                                {{ form.nama.errors }}
+                            </div>
+                            <div class="form-group has-success">
+                                <label class="control-label mb-1">{{ form.spk.label }}</label>
+                                {{ form.spk }}
+                                {{ form.spk.errors }}
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label class="control-label mb-1">{{ form.sumber.label }}</label>
+                                        {{ form.sumber }}
+                                        {{ form.sumber.errors }}
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label class="control-label mb-1">{{ form.alamat.label }}</label>
+                                        {{ form.alamat }}
+                                        {{ form.alamat.errors }}
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label class="control-label mb-1">{{ form.nilai.label }}</label>
+                                        {{ form.nilai }}
+                                        {{ form.nilai.errors }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div align="right">
+                                <button type="submit" class="btn btn-primary">Simpan</button>
+                                <a href="{% url 'projects:list' %}" class="btn btn-primary"
+                                    role="button">Batal</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div> <!-- .card -->
+    </div>
+</div>
+
+
+
+{% endblock content %}

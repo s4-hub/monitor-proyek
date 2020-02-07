@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Orders -->
+<div class="orders">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="box-title">Running Project Lists</h4>
+                </div>
+                <div class="card-body--">
+                    <div class="table-stats order-table ov-h">
+                        <table class="table ">
+                            <thead>
+                                <tr>
+                                    <th class="serial">No</th>
+                                    <th>Nama<br/>Proyek</th>
+                                    <th>SPK</th>
+                                    <th>Alamat</th>
+                                    <th>Sumber<br/>Proyek</th>
+                                    <th>Nilai</br>Proyek</th>
+                                    <th>Kota/<br>Kabupaten</th>
+                                    <th>Provinsi</th>
+                                    <th>Tanggal<br/>Pengerjaan</th>
+                                    <th>Tanggal<br/>Selesai</th>
+                                    <th>Progress</th>
+                                    <th>User</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for data in datas %}
+                                <tr>
+                                
+                                    <td class="serial">{{ forloop.counter }}</td>
+                                    
+                                    <td>  <span class="name">{{data.nama}}</span> </td>
+                                    <td> {{data.spk}}</td>
+                                    <td> {{data.alamat}} </td>
+                                    <td> {{data.get_sumber_display}} </td>
+                                    
+                                    <td> <span class="price">Rp.{{data.nilai|intcomma}}</span> </td>
+                                    <td> {{data.kota}}</td>
+                                    <td> {{data.provinsi}}</td>
+                                    <td> {{data.tgl_mulai}}</td>
+                                    <td> {{data.tgl_selesai}}</td>
+                                    <td> {{data.jatuh_tempo}} Hari</td>
+                                    
+                                    <td> {{ cuser }} </td>
+                                    <td> Edit | Delete</td>
+                                    
+                                    <td>
+                                        <span class="badge badge-complete">Complete</span>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div> <!-- /.table-stats -->
+                </div>
+            </div> <!-- /.card -->
+        </div>  <!-- /.col-lg-8 -->
+
+        
+    </div>
+</div>
+<!-- /.orders -->
+
+{% endblock content %}
