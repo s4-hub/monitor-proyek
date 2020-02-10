@@ -1,14 +1,15 @@
 from django.db import models
 from datetime import timedelta
+# import datetime
 from django.contrib.auth.models import User
 
 # Create your models here.
 SUMBER_PROJECT = [
-    ('1', 'APBN'),
-    ('2', 'APBD TK. 1'),
-    ('3', 'APBD TK. 2'),
-    ('4', 'SWASTA'),
-    ('5', 'DANA INTERNASIONAL')
+    (1, 'APBN'),
+    (2, 'APBD TK. 1'),
+    (3, 'APBD TK. 2'),
+    (4, 'SWASTA'),
+    (5, 'DANA INTERNASIONAL')
 ]
 
 class DaftarProject(models.Model):
@@ -25,7 +26,8 @@ class DaftarProject(models.Model):
     username = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def jatuh_tempo(self):
-        selisih = self.tgl_mulai - self.tgl_selesai
-
-        return self.tgl_mulai + timedelta(days=selisih.days)
+        selisih = self.tgl_selesai - self.tgl_mulai
+        # pengurang = datetime.date.today()
+        
+        return (selisih.days)
 

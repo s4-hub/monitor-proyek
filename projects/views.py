@@ -19,16 +19,17 @@ def project_list(request):
 
 def project_new(request):
     if request.method == 'POST':
-        cuser = request.user
+        
         form = ProjectForm(request.POST)
-        if cuser.is_authenticated:
-            if form.is_valid:
-                post = form.save(commit=False)
-                post.save()
+        # print(form)
+        
+        if form.is_valid:
+            post = form.save(commit=False)
+            post.username = request.user
+            post.save()
 
-                return redirect('projects:list')
-        else:
-            return redirect('projects:new')
+            return redirect('projects:list')
+        
     else:
         form = ProjectForm()
     return render(request, 'projects/project_edit.html', {'form':form})

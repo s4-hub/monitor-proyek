@@ -34,7 +34,9 @@ class ProjectForm(forms.ModelForm):
                 'placeholder': 'Nilai Proyek',
                 'type': 'number'}),
             'tgl_mulai': forms.TextInput(
-                attrs={'class': 'form-control'}),
+                attrs={'class': 'form-control',
+                'type': 'date'}),
             'tgl_selesai': forms.TextInput(
-                attrs={'class': 'form-control'})
+                attrs={'class': 'form-control',
+                'type': 'date'})
         }

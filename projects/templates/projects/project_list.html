@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load humanize %}
 
 {% block content %}
 <!-- Orders -->
@@ -46,14 +47,18 @@
                                     <td> {{data.provinsi}}</td>
                                     <td> {{data.tgl_mulai}}</td>
                                     <td> {{data.tgl_selesai}}</td>
-                                    <td> {{data.jatuh_tempo}} Hari</td>
+                                    {% if data.jatuh_tempo == 0 %}
+                                        <td>
+                                            <span class="badge badge-complete">Complete</span>
+                                        </td>
+                                    {% else %}
+                                        <td> {{data.jatuh_tempo}} Hari</td>
+                                    {% endif %}
                                     
-                                    <td> {{ cuser }} </td>
+                                    <td> {{data.username}} </td>
                                     <td> Edit | Delete</td>
                                     
-                                    <td>
-                                        <span class="badge badge-complete">Complete</span>
-                                    </td>
+                                    
                                 </tr>
                                 {% endfor %}
                             </tbody>

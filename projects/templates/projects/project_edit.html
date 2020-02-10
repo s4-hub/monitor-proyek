@@ -11,7 +11,7 @@
                 <!-- Credit Card -->
                 <div id="pay-invoice">
                     <div class="card-body">
-                        <form action="#" method="post" novalidate="novalidate">
+                        <form action="" method="POST" novalidate="novalidate">
                             {% csrf_token %}
                             <div class="form-group">
                                 <label class="control-label mb-1">{{ form.nama.label }}</label>
@@ -19,9 +19,9 @@
                                 {{ form.nama.errors }}
                             </div>
                             <div class="form-group has-success">
-                                <label class="control-label mb-1">{{ form.spk.label }}</label>
-                                {{ form.spk }}
-                                {{ form.spk.errors }}
+                                <label class="control-label mb-1">{{ form.alamat.label }}</label>
+                                {{ form.alamat }}
+                                {{ form.alamat.errors }}
                             </div>
                             <div class="row">
                                 <div class="col-4">
@@ -33,16 +33,44 @@
                                 </div>
                                 <div class="col-4">
                                     <div class="form-group">
-                                        <label class="control-label mb-1">{{ form.alamat.label }}</label>
-                                        {{ form.alamat }}
-                                        {{ form.alamat.errors }}
+                                        <label class="control-label mb-1">{{ form.spk.label }}</label>
+                                        {{ form.spk }}
+                                        {{ form.spk.errors }}
                                     </div>
                                 </div>
                                 <div class="col-4">
                                     <div class="form-group">
+                                        <label class="control-label mb-1">{{ form.kota.label }}</label>
+                                        {{ form.kota }}
+                                        {{ form.kota.errors }}
+                                    </div>
+                                </div>
+                                 <div class="col-4">
+                                    <div class="form-group">
+                                        <label class="control-label mb-1">{{ form.provinsi.label }}</label>
+                                        {{ form.provinsi }}
+                                        {{ form.provinsi.errors }}
+                                    </div>
+                                </div>
+                                 <div class="col-4">
+                                    <div class="form-group">
                                         <label class="control-label mb-1">{{ form.nilai.label }}</label>
                                         {{ form.nilai }}
                                         {{ form.nilai.errors }}
+                                    </div>
+                                </div>
+                                 <div class="col-4">
+                                    <div class="form-group">
+                                        <label class="control-label mb-1">{{ form.tgl_mulai.label }}</label>
+                                        {{ form.tgl_mulai }}
+                                        {{ form.tgl_mulai.errors }}
+                                    </div>
+                                </div>
+                                 <div class="col-4">
+                                    <div class="form-group">
+                                        <label class="control-label mb-1">{{ form.tgl_selesai.label }}</label>
+                                        {{ form.tgl_selesai }}
+                                        {{ form.tgl_selesai.errors }}
                                     </div>
                                 </div>
                             </div>
