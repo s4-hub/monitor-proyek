@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse
 from .form import ProjectForm
 from .models import DaftarProject
 from django.contrib.auth import authenticate
@@ -28,7 +30,7 @@ def project_new(request):
             post.username = request.user
             post.save()
 
-            return redirect('projects:list')
+            return HttpResponseRedirect(reverse('projects:list'))
         
     else:
         form = ProjectForm()

@@ -1,6 +1,6 @@
 from django.db import models
 from datetime import timedelta
-# import datetime
+import datetime, time
 from django.contrib.auth.models import User
 
 # Create your models here.
@@ -26,8 +26,13 @@ class DaftarProject(models.Model):
     username = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def jatuh_tempo(self):
-        selisih = self.tgl_selesai - self.tgl_mulai
-        # pengurang = datetime.date.today()
+    
+        if (self.tgl_mulai == datetime.date.today()) or (self.tgl_mulai < datetime.date.today()):
+           selisih = self.tgl_selesai - datetime.date.today()
+        else:
+           selisih = self.tgl_selesai - self.tgl_mulai
+      
         
         return (selisih.days)
 
+        
